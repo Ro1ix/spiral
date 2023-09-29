@@ -2,7 +2,6 @@ C:\Users\prdb\Desktop\spiral\bin\Debug\spiral.exe.config
 C:\Users\prdb\Desktop\spiral\bin\Debug\spiral.exe
 C:\Users\prdb\Desktop\spiral\bin\Debug\spiral.pdb
 C:\Users\prdb\Desktop\spiral\obj\Debug\spiral.csproj.AssemblyReference.cache
-C:\Users\prdb\Desktop\spiral\obj\Debug\spiral.csproj.SuggestedBindingRedirects.cache
 C:\Users\prdb\Desktop\spiral\obj\Debug\spiral.csproj.CoreCompileInputs.cache
 C:\Users\prdb\Desktop\spiral\obj\Debug\spiral.exe
 C:\Users\prdb\Desktop\spiral\obj\Debug\spiral.pdb

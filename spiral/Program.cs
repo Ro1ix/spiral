@@ -15,69 +15,74 @@ namespace spiral
             int n = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine();
             int[,] spiral = new int[n, n];
-            int border = n;
-            int border2 = -1;
-            int j = 0;
-            int h = 0;
-            string direction = "right";
-            for (int i = 0; i < n * n; i++)
+            int border = n - 1;
+            int border2 = 0;
+            int columns = 0;
+            int rows = 0;
+            //spiral[0, 0] = 1;
+            //for (int number = 1; number < n * n; number++)
+            //{
+            //    if (x < border)
+            //    {
+            //        x = x + 1;
+            //        spiral[x, y] = number + 1;
+            //    }
+            //    else if (x == border && y < border)
+            //    {
+
+            //    }
+            //}
+
+            spiral[0, 0] = 1;
+            int number = 2;
+            while (number <= n * n)
             {
-                switch (direction)
+                while (columns < border)
                 {
-                    case "right":
-                        spiral[j, h] = i + 1;
-                        h++;
-                        if (h == border)
-                        { 
-                            direction = "down"; 
-                            h = h - 1;
-                            j = j + 1;
-                        }
-                        break;
-                    case "down":
-                        spiral[j, h] = i + 1;
-                        j++;
-                        if (j == border)
-                        {
-                            direction = "left";
-                            j = j - 1;
-                            h = h - 1;
-                            border = border - 1;
-                        }
-                        break;
-                    case "left":
-                        spiral[j, h] = i + 1;
-                        h--;
-                        if (h == border2)
-                        {
-                            direction = "up";
-                            h = h + 1;
-                            j = j - 1;
-                            border2 = border2 + 1;
-                        }
-                        break;
-                    case "up":
-                        spiral[j, h] = i + 1;
-                        j--;
-                        if (j == border2)
-                        {
-                            direction = "right";
-                            j = j + 1;
-                            h = h + 1;
-                        }
+                    columns++;
+                    spiral[rows, columns] = number;
+                    number++;
+                    if (number >= n * n)
                         break;
                 }
+                while (rows < border)
+                {
+                    rows++;
+                    spiral[rows, columns] = number;
+                    number++;
+                    if (number >= n * n)
+                        break;
+                }
+                //columns--;
+                //border--;
+                while (columns > border2)
+                {
+                    spiral[rows, columns] = number;
+                    number++;
+                    if (number >= n * n)
+                        break;
+                    columns--;
+                }
+                while (rows > border2)
+                {
+                    spiral[rows, columns] = number;
+                    number++;
+                    if (number >= n * n)
+                        break;
+                    rows--;
+                }
+                border2++;
             }
             for (int i = 0; i < n; i++)
             {
-                for (int u = 0; u < n; u++)
+                for (int j = 0; j < n; j++)
                 {
-                    if (spiral[i, u] < 10)
-                        Console.Write($"{spiral[i, u]}    ");
-                    else if (spiral[i, u] < 100)
-                        Console.Write($"{spiral[i, u]}   ");
+                    if (spiral[i, j] < 10)
+                        Console.Write($"{spiral[i, j]}    ");
+                    else if (spiral[i, j] < 100)
+                        Console.Write($"{spiral[i, j]}   ");
                     else
-                        Console.Write($"{spiral[i, u]}  ");
+                        Console.Write($"{spiral[i, j]}  ");
                 }
                 Console.WriteLine("\n");
             }
